@@ -1,0 +1,3 @@
+[submodule "mediaplaycounts"]
+	path = mediaplaycounts
+	url = https://github.com/harej/mediaplaycounts
