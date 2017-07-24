@@ -101,7 +101,7 @@ def category_playcount_directory():
 
 
 @app.route('/api/2/file_playcount/all')
-def file_playcount_date_doc():
+def file_playcount_all_doc():
     return _doc_response(['filename'])
 
 
@@ -126,7 +126,7 @@ def file_playcount_last_90_doc():
 
 
 @app.route('/api/2/category_playcount/all')
-def category_playcount_date_doc():
+def category_playcount_all_doc():
     return _doc_response(['category', 'depth'])
 
 
