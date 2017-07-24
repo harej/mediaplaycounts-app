@@ -152,7 +152,7 @@ def category_playcount_last_90_doc():
 
 ### File Playcount ###
 
-@app.route('/api/2/file_playcount/date/<filename>/<date>')
+@app.route('/api/2/file_playcount/all/<filename>')
 def file_playcount_all(filename):
     return _api_response(mpc.file_playcount(filename))
 
