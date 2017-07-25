@@ -1,3 +1,4 @@
+*.pyc
 .my.cnf
 config.py
 __pycache__/
