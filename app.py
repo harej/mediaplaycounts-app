@@ -152,6 +152,7 @@ def category_playcount_last_90_doc():
 
 ### File Playcount ###
 
+
 @app.route('/api/2/file_playcount/all/<filename>')
 def file_playcount_all(filename):
     return _api_response(mpc.file_playcount(filename))
@@ -181,6 +182,7 @@ def file_playcount_last_90(filename):
 
 ### Category Playcount ###
 
+
 @app.route('/api/2/category_playcount/all/<category>')
 def category_playcount_all_autodepth(category):
     return _api_response(mpc.category_playcount(category))
@@ -188,8 +190,7 @@ def category_playcount_all_autodepth(category):
 
 @app.route('/api/2/category_playcount/all/<category>/<depth>')
 def category_playcount_all_userdepth(category, depth):
-    return _api_response(
-        mpc.category_playcount(category, depth=int(depth)))
+    return _api_response(mpc.category_playcount(category, depth=int(depth)))
 
 
 @app.route('/api/2/category_playcount/date/<category>/<date>')
