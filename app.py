@@ -245,3 +245,107 @@ def category_playcount_last_90_autodepth(category):
 def category_playcount_last_90_userdepth(category, depth):
     return _api_response(
         mpc.category_playcount(category, depth=int(depth), last=90))
+
+
+### Single Image Viewcount ###
+
+
+@app.route('/api/2/image_viewcount/all/<filename>')
+def image_viewcount_all(filename):
+    return _api_response(mpc.image_single_viewcount(filename))
+
+
+@app.route('/api/2/image_viewcount/date/<filename>/<date>')
+def image_viewcount_date(filename, date):
+    return _api_response(mpc.image_single_viewcount(filename, end_date=date))
+
+
+@app.route(
+    '/api/2/image_viewcount/date_range/<filename>/<start_date>/<end_date>')
+def image_viewcount_date_range(filename, start_date, end_date):
+    return _api_response(
+        mpc.image_single_viewcount(filename, start_date=start_date, end_date=end_date))
+
+
+@app.route('/api/2/image_viewcount/last_30/<filename>')
+def image_viewcount_last_30(filename):
+    return _api_response(mpc.image_single_viewcount(filename, last=30))
+
+
+@app.route('/api/2/image_viewcount/last_90/<filename>')
+def image_viewcount_last_90(filename):
+    return _api_response(mpc.image_single_viewcount(filename, last=90))
+
+
+### Image Category Viewcount ###
+
+
+@app.route('/api/2/image_categoryviews/all/<category>')
+def image_categoryviews_all_autodepth(category):
+    return _api_response(mpc.image_category_viewcount(category))
+
+
+@app.route('/api/2/image_categoryviews/all/<category>/<depth>')
+def image_categoryviews_all_userdepth(category, depth):
+    return _api_response(mpc.image_category_viewcount(category, depth=int(depth)))
+
+
+@app.route('/api/2/image_categoryviews/date/<category>/<date>')
+def image_categoryviews_date_autodepth(category, date):
+    return _api_response(mpc.image_category_viewcount(category, end_date=date))
+
+
+@app.route('/api/2/image_categoryviews/date/<category>/<date>/<depth>')
+def image_categoryviews_date_userdepth(category, date, depth):
+    return _api_response(
+        mpc.image_category_viewcount(category, depth=int(depth), end_date=date))
+
+
+@app.route(
+    '/api/2/image_categoryviews/date_range/<category>/<start_date>/<end_date>')
+def image_categoryviews_date_range_autodepth(category, start_date, end_date):
+    return _api_response(
+        mpc.image_category_viewcount(
+            category, start_date=start_date, end_date=end_date))
+
+
+@app.route(
+    '/api/2/image_categoryviews/date_range/<category>/<start_date>/<end_date>/<depth>'
+)
+def image_categoryviews_date_range_userdepth(category, start_date, end_date,
+                                            depth):
+    return _api_response(
+        mpc.image_category_viewcount(
+            category,
+            depth=int(depth),
+            start_date=start_date,
+            end_date=end_date))
+
+
+@app.route('/api/2/image_categoryviews/last_30/<category>')
+def image_categoryviews_last_30_autodepth(category):
+    return _api_response(mpc.image_category_viewcount(category, last=30))
+
+
+@app.route('/api/2/image_categoryviews/last_30/<category>/<depth>')
+def image_categoryviews_last_30_userdepth(category, depth):
+    return _api_response(
+        mpc.image_category_viewcount(category, depth=int(depth), last=30))
+
+
+@app.route('/api/2/image_categoryviews/last_90/<category>')
+def image_categoryviews_last_90_autodepth(category):
+    return _api_response(mpc.image_category_viewcount(category, last=90))
+
+
+@app.route('/api/2/image_categoryviews/last_90/<category>/<depth>')
+def image_categoryviews_last_90_userdepth(category, depth):
+    return _api_response(
+        mpc.image_category_viewcount(category, depth=int(depth), last=90))
+
+@app.route('/api/2/youtube/<file_or_cat>/<name_to_search>')
+def youtube_0(file_or_cat, name_to_search):
+    if file_or_cat == 'file':
+        return _api_response(mpc.youtube_snapshot_file(name_to_search))
+    elif file_or_cat == 'category':
+        return _api_response(mpc.youtube_snapshot_category(name_to_search))
