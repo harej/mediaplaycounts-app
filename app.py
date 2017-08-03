@@ -264,7 +264,8 @@ def image_viewcount_date(filename, date):
     '/api/2/image_viewcount/date_range/<filename>/<start_date>/<end_date>')
 def image_viewcount_date_range(filename, start_date, end_date):
     return _api_response(
-        mpc.image_single_viewcount(filename, start_date=start_date, end_date=end_date))
+        mpc.image_single_viewcount(
+            filename, start_date=start_date, end_date=end_date))
 
 
 @app.route('/api/2/image_viewcount/last_30/<filename>')
@@ -287,7 +288,8 @@ def image_categoryviews_all_autodepth(category):
 
 @app.route('/api/2/image_categoryviews/all/<category>/<depth>')
 def image_categoryviews_all_userdepth(category, depth):
-    return _api_response(mpc.image_category_viewcount(category, depth=int(depth)))
+    return _api_response(
+        mpc.image_category_viewcount(category, depth=int(depth)))
 
 
 @app.route('/api/2/image_categoryviews/date/<category>/<date>')
@@ -298,7 +300,8 @@ def image_categoryviews_date_autodepth(category, date):
 @app.route('/api/2/image_categoryviews/date/<category>/<date>/<depth>')
 def image_categoryviews_date_userdepth(category, date, depth):
     return _api_response(
-        mpc.image_category_viewcount(category, depth=int(depth), end_date=date))
+        mpc.image_category_viewcount(
+            category, depth=int(depth), end_date=date))
 
 
 @app.route(
@@ -313,7 +316,7 @@ def image_categoryviews_date_range_autodepth(category, start_date, end_date):
     '/api/2/image_categoryviews/date_range/<category>/<start_date>/<end_date>/<depth>'
 )
 def image_categoryviews_date_range_userdepth(category, start_date, end_date,
-                                            depth):
+                                             depth):
     return _api_response(
         mpc.image_category_viewcount(
             category,
@@ -342,6 +345,7 @@ def image_categoryviews_last_90_autodepth(category):
 def image_categoryviews_last_90_userdepth(category, depth):
     return _api_response(
         mpc.image_category_viewcount(category, depth=int(depth), last=90))
+
 
 @app.route('/api/2/youtube/<file_or_cat>/<name_to_search>')
 def youtube_0(file_or_cat, name_to_search):
